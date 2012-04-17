@@ -1,0 +1,6 @@
+== 2012-04-17 14:00:00 +0000 Nia M <nmutiara@gmail.com>
+
+* Wrap API V2 with RViki::Client
+* Created printer class to format server response output
+* Wrap API V2 with command line interface
+

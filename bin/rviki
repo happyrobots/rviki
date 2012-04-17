@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+begin
+  require "pathname"
+  bin_file = Pathname.new(__FILE__).realpath
+  $:.unshift File.expand_path("../lib", bin_file)
+
+  require "rviki/cli"
+  cli = RViki::Cli.new
+  cli.execute(*ARGV)
+rescue Interrupt
+  `stty icanon echo`
+  puts("\n !    Command cancelled.")
+end
+
