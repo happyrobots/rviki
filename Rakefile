@@ -32,5 +32,5 @@ task :build do
 end
 
 task :release => :build do
-  system "gem push rviki-#{RViki::VERSION::STRING}"
+  system "gem push rviki-#{RViki::VERSION::STRING}.gem"
 end
