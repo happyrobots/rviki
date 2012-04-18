@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.license     = ''
   s.description = "A short description"
   s.summary     = "A longer summary"
-  s.executables = "rviki"
+  s.executables = %w(rviki1 rviki2 rviki3)
   s.files       = %x{ git ls-files }.split("\n").select { |d| d =~ %r{^(License|README|bin/|data/|ext/|lib/|spec/|test/)} }
 
   s.platform = Gem::Platform::RUBY

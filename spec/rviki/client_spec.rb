@@ -1,7 +1,13 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe RViki::Client do
+describe RViki::ClientV1 do
+  subject { described_class.routes }
+  it { subject[:shows].should == ["/shows.json", []] }
+  it { subject[:shows_item].should == ["/shows/:id.json", [:id]] }
+end
+
+describe RViki::ClientV2 do
   subject { described_class.routes }
   it { subject[:shows].should == ["/shows.json", []] }
   it { subject[:shows_item].should == ["/shows/:id.json", [:id]] }
@@ -18,5 +24,10 @@ describe RViki::Client do
   it { subject[:video_casts].should == ["/videos/:id/casts.json", [:id]] }
   it { subject[:video_parts].should == ["/videos/:id/parts.json", [:id]] }
   it { subject[:video_posts].should == ["/videos/:id/recommended.json", [:id]] }
+end
+
+describe RViki::ClientV3 do
+  subject { described_class.routes }
+  it { subject[:custom].should == ["/custom.json", []] }
 end
 

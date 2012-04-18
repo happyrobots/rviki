@@ -1,6 +1,17 @@
 # encoding: utf-8
 module RViki
-  class Client
+  class ClientV1
+    include Routable
+
+    base_uri 'http://www.viki.com/api/v1'
+    headers "Content-Type" => "application/json", "User-Agent" => "VikiMobile/4.0 RViki::Client"
+    format :json
+
+    route_get "/shows.json", as: :shows
+    route_get "/shows/:id.json", as: :shows_item
+  end
+
+  class ClientV2
     include Routable
 
     base_uri 'http://www.viki.com/api/v2'
@@ -23,5 +34,17 @@ module RViki
     route_get "/videos/:id/parts.json", as: :video_parts
     route_get "/videos/:id/recommended.json", as: :video_posts
   end
+
+  class ClientV3
+    include Routable
+
+    base_uri 'http://www.viki.com/api/v3'
+    headers "Content-Type" => "application/json", "User-Agent" => "VikiMobile/4.0 RViki::Client"
+    format :json
+
+    route_get "/custom.json", as: :custom
+  end
+
+  Client = ClientV2
 end
 

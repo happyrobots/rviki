@@ -6,7 +6,7 @@ begin
   $:.unshift File.expand_path("../lib", bin_file)
 
   require "rviki/cli"
-  cli = RViki::Cli.new
+  cli = RViki::Cli1.new
   cli.execute(*ARGV)
 rescue Interrupt
   `stty icanon echo`
